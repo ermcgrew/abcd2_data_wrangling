@@ -50,8 +50,8 @@ ABCTaucount=0
 ABCTaulongcount=0
 anegabctau=0
 
-listtowrite=[]
-headernames=['D2MRI','D2Amyloid','D2Tau','ABCMRI','ABCAmyloid','ABCTau']
+# listtowrite=[]
+# headernames=['D2MRI','D2Amyloid','D2Tau','ABCMRI','ABCAmyloid','ABCTau']
 # with open(f'imaging_by_numbers3.csv', 'w', newline='') as csvfile:
 #     csvwriter=csv.DictWriter(csvfile, fieldnames=headernames)
 #     csvwriter.writeheader()
@@ -107,8 +107,11 @@ for count, subject in enumerate(subjects, 1):
         D2Tauscanlist=[label for label in labels if 'AV1451' in label and 'D2' in label]
         if len(D2Tauscanlist) != 0:
             D2Taucount+=1
+            # print(f"Tau Scan list:")
+            # print(D2Tauscanlist)
             match=dfamyneg.loc[dfamyneg['INDD']==subject.label]
             if len(match)>=1:
+                # print(f"Amyneg subject match: {match['INDD']}")
                 anegd2tau+=1
         if len(D2Tauscanlist) >=2:
             D2Taulongcount+=1
